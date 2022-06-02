@@ -4,15 +4,16 @@ import sys
 osu_songs_folder = "" #Remember to add the \Songs after osu, otherwise it won't work, don't bother if you didn't change the install location
 delfiles = [] #Define empty list to do stuff later
 
-if os.path.exists(f"C:\\Users\\{os.getlogin()}\\AppData\\Local\\osu!\\Songs") == False: #default osu install location
+if  os.path.exists(osu_songs_folder) is False: #checks for custom osu folder
 	pass
-if os.path.exists(osu_songs_folder)==False: #gets custom osu folder
+elif os.path.exists(f"C:\\Users\\{os.getlogin()}\\AppData\\Local\\osu!\\Songs") is False: #gets normal path for osu installation
 	print("Set your songs folder")
 	time.sleep(5)
 	sys.exit()
+
 print("""Shouldn't be longer than 5 mins (maybe)""")
 
-if osu_songs_folder != "":
+if osu_songs_folder is not "":
 	xdw = os.walk(osu_songs_folder) #gets all mp4 files
 else:
 	xdw = os.walk(f"C:\\Users\\{os.getlogin()}\\AppData\\Local\\osu!\\Songs") #gets all mp4 files
